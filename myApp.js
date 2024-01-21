@@ -23,8 +23,13 @@ app.get("/json",(req,res)=>{
   }else{
     message="Hello json";
   }
-
     res.json({message:message});
+})
+app.get("/now",(req,res)=>{
+    const now=new Date().toString();
+    req.time=now
+},(req, res)=>{
+res.json({time: req.time})
 })
 
 
