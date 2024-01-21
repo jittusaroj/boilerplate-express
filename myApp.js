@@ -43,6 +43,10 @@ app.get("/name", function(req, res) {
     res.json({ name: `${firstName} ${lastName}`});
   });
 
+app.post("/name",function(req, res) {
+    var { first: firstName, last: lastName } = req.body;
+    res.json({ name: `${firstName} ${lastName}`});
+  })
 
 
 
