@@ -19,13 +19,12 @@ app.get("/",(req,res)=>{
 res.sendFile(__dirname+"/views/index.html");
 })
 app.get("/json",(req,res)=>{
-    let message="Hello json";
-  if(process.env.MESSAGE_STYLE==="uppercase"){
-    message.toUpperCase();
-  }else{
-    message="Hello json";
-  }
-    res.json({message:message});
+    if (process.env.VAR_NAME === "allCaps") {
+        response = "Hello World".toUpperCase();
+      } else {
+        response = "Hello World";
+      }
+      res.json({response})
 })
 app.get("/now",(req,res,next)=>{
     const now=new Date().toString();
