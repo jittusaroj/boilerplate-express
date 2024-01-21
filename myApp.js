@@ -25,9 +25,10 @@ app.get("/json",(req,res)=>{
   }
     res.json({message:message});
 })
-app.get("/now",(req,res)=>{
+app.get("/now",(req,res,next)=>{
     const now=new Date().toString();
-    req.time=now
+    req.time=now;
+    next();
 },(req, res)=>{
 res.json({time: req.time})
 })
